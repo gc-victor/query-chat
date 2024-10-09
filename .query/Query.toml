@@ -1,0 +1,23 @@
+[server]
+url = "http://localhost:3000"
+
+[structure]
+functions_folder = "src"
+
+[esbuild]
+"loader:.html" = "text"
+"external:query:database" = ""
+
+[task]
+clean = ".query/tasks/clean.sh"
+deploy = ".query/tasks/deploy.sh"
+tailwindcss = "node_modules/.bin/tailwindcss -i ./src/pages/styles.css -o ./dist/styles.css --minify"
+
+[task.create]
+migration = "node_modules/.bin/query task migration -y"
+
+[task.dev]
+css = "node_modules/.bin/tailwindcss -i ./src/pages/styles.css -o ./dist/styles.css"
+
+[task.migration]
+chat = "node_modules/.bin/query migration chat.sql migrations/chat.sql"

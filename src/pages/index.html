@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="{{ styles }}">
+    <!-- <script src="/_/asset/dist/chat.js" defer></script> -->
+</head>
+
+<body class="bg-white min-h-screen">
+    <div class="pt-12">
+        <div class="flex flex-col h-[600px] max-w-md mx-auto rounded-lg overflow-hidden">
+            <div class="flex items-center pt-4 pb-4 pl-4 pr-1 bg-[#075e54] text-white">
+                <div class="avatar h-10 w-10">
+                    <!-- <img src="/api/placeholder/40/40" alt="Contact" class="rounded-full"> -->
+                    <span class="avatar-fallback">CN</span>
+                </div>
+                <div class="ml-4 flex-grow">
+                    <h2 class="font-semibold">Contact Name</h2>
+                    <p class="text-xs">Online</p>
+                </div>
+                <div class="flex space-x-1" aria-hidden="true">
+                    <span class="btn btn-icon btn-ghost">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
+                    </span>
+                    <span class="btn btn-icon btn-ghost">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="btn btn-icon btn-ghost">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="12" cy="5" r="1"></circle>
+                            <circle cx="12" cy="19" r="1"></circle>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div id="chat-messages" class="flex-grow overflow-y-auto py-4 px-2 bg-[#e5ddd5]">
+                {{ messages }}
+            </div>
+            <form id="message-form" class="p-4 bg-[#f0f2f5] flex items-center" method="POST" action="/api/message">
+                <label for="message-input" class="sr-only">Type a message</label>
+                <input type="text" id="message-input" placeholder="Type a message"
+                    class="flex-grow p-2 rounded-md border border-none placeholder:text-slate-500">
+                <div class="sr-only">
+                    <button type="submit"
+                        class="w-9 h-9 ml-2 btn btn-icon bg-[#128c7e] hover:bg-[#075e54] text-white relative">
+                        <span class="sr-only">Send message</span>
+                        <svg class="h-5 w-5 transform rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <template id="js-tempalte-messages">{{ template }}</template>
+</body>
+
+</html>

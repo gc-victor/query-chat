@@ -1,0 +1,41 @@
+# fly.toml app configuration file generated for query-todo on 2024-10-08T13:38:30+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'query-todo'
+primary_region = 'iad'
+
+[experimental]
+  auto_rollback = true
+
+[build]
+
+[[mounts]]
+  source = 'query_todo_machine'
+  destination = '/mnt/'
+  initial_size = '1'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 3000
+  auto_stop_machines = 'suspend'
+  auto_start_machines = true
+  processes = ['app']
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+  [[services.tcp_checks]]
+    interval = '15s'
+    timeout = '2s'
+    grace_period = '1s'
+
+[[vm]]
+  size = 'shared-cpu-1x'

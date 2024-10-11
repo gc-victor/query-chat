@@ -1,0 +1,29 @@
+# flyctl launch added from .gitignore
+**/node_modules
+
+**/dist
+**/.env
+**/.dbs
+**/.query/.cache
+**/.query/.history
+**/.query/.token
+
+# flyctl launch added from node_modules/.pnpm/@qery+query-server@0.12.26/node_modules/@qery/query-server/.gitignore
+node_modules/.pnpm/@qery+query-server@0.12.26/node_modules/@qery/query-server/node_modules
+
+
+# flyctl launch added from node_modules/.pnpm/@qery+query-server@0.12.27/node_modules/@qery/query-server/.gitignore
+node_modules/.pnpm/@qery+query-server@0.12.27/node_modules/@qery/query-server/node_modules
+
+
+# flyctl launch added from node_modules/.pnpm/@qery+query@0.12.26/node_modules/@qery/query/.gitignore
+node_modules/.pnpm/@qery+query@0.12.26/node_modules/@qery/query/node_modules
+
+
+# flyctl launch added from node_modules/.pnpm/@qery+query@0.12.27/node_modules/@qery/query/.gitignore
+node_modules/.pnpm/@qery+query@0.12.27/node_modules/@qery/query/node_modules
+
+
+# flyctl launch added from node_modules/.pnpm/tailwindcss@3.4.13/node_modules/tailwindcss/stubs/.gitignore
+!node_modules/.pnpm/tailwindcss@3.4.13/node_modules/tailwindcss/stubs/**/*
+fly.toml

@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for query-chat on 2024-10-10T11:54:18+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'query-chat'
+primary_region = 'iad'
+
+[experimental]
+  auto_rollback = true
+
+[build]
+
+[[mounts]]
+  source = 'query_chat_machine'
+  destination = '/mnt/'
+  initial_size = '1'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'suspend'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
